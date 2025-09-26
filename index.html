@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Financiero</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Para iconos -->
+</head>
+<body>
+    <div class="container">
+        <!-- Tarjeta de Saludo y Balance Principal -->
+        <header class="card glass">
+            <div class="header-content">
+                <div class="greeting">
+                    <p>Hola de nuevo,</p>
+                    <h2>Tu Resumen Financiero</h2>
+                </div>
+                <div class="main-balance">
+                    <p>Saldo Total</p>
+                    <h1 id="saldoTotal">$0.00</h1>
+                    <button id="toggleVisibility">👁️</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Resumen del Mes -->
+            <section class="card glass summary-card">
+                <div class="summary-item income">
+                    <p>Ingresos del Mes</p>
+                    <h3 id="ingresosMes">$0.00</h3>
+                </div>
+                <div class="summary-item expense">
+                    <p>Gastos del Mes</p>
+                    <h3 id="gastosMes">$0.00</h3>
+                </div>
+            </section>
+
+            <!-- Acciones Rápidas -->
+            <section class="quick-actions">
+                <button class="action-btn glass" id="btnNuevoIngreso">+ Ingreso</button>
+                <button class="action-btn glass" id="btnNuevoGasto">- Gasto</button>
+            </section>
+
+            <!-- Gráficos y Metas -->
+            <div class="data-section">
+                <div class="card glass chart-container">
+                    <h3>Distribución de Gastos</h3>
+                    <canvas id="gastosChart"></canvas>
+                </div>
+
+                <div class="card glass savings-goals">
+                    <h3>Metas de Ahorro</h3>
+                    <div class="goal">
+                        <div class="goal-info">
+                            <span>Comprar Portátil</span>
+                            <span>$600 / $1000</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                     <!-- Aquí se agregarán más metas dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Lista de Transacciones Recientes -->
+            <section class="card glass recent-transactions">
+                <h3>Transacciones Recientes</h3>
+                <ul id="transactionsList">
+                    <!-- Las transacciones se cargarán aquí con JS -->
+                    <li>
+                        <div class="transaction-icon expense-icon">-</div>
+                        <div class="transaction-details">
+                            <span class="transaction-desc">Café con amigos</span>
+                            <span class="transaction-cat">Ocio</span>
+                        </div>
+                        <span class="transaction-amount expense">-$5.00</span>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para Registrar Gasto (Diseño mejorado) -->
+    <div id="modalGasto" class="modal">
+        <div class="modal-content glass">
+            <span class="close-button">&times;</span>
+            <h2>Nuevo Gasto</h2>
+            <form id="formGasto">
+                <input type="number" id="gastoMonto" placeholder="Monto: $0.00" required>
+                <input type="text" id="gastoDescripcion" placeholder="¿En qué gastaste?" required>
+                <select id="gastoCategoria" required>
+                    <option value="">Selecciona Categoría</option>
+                    <!-- Opciones de categoría se llenarán con JS -->
+                </select>
+                <select id="gastoCuenta" required>
+                    <option value="">Selecciona Cuenta</option>
+                    <!-- Opciones de cuenta se llenarán con JS -->
+                </select>
+                <div id="opcionTarjetaCredito" class="credit-card-option" style="display: none;">
+                    <input type="checkbox" id="contarSiguienteMes">
+                    <label for="contarSiguienteMes">Contabilizar este gasto en el próximo mes</label>
+                </div>
+                <button type="submit" class="submit-btn">Añadir Gasto</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

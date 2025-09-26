@@ -1,0 +1,126 @@
+:root {
+    --primary-color: #4A90E2;
+    --income-color: #50E3C2;
+    --expense-color: #E35050;
+    --background-start: #1e3c72;
+    --background-end: #2a5298;
+    --text-color: #f0f0f0;
+    --text-color-light: #d1d1d1;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--background-start), var(--background-end));
+    color: var(--text-color);
+    margin: 0;
+    padding: 15px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Estilo de Tarjeta y Glassmorphism */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Header */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.greeting p { margin: 0; color: var(--text-color-light); }
+.greeting h2 { margin: 5px 0 0 0; }
+.main-balance { text-align: right; }
+.main-balance p { margin: 0; font-size: 0.9em; }
+.main-balance h1 { margin: 5px 0; font-size: 2.5em; display: inline-block; }
+#toggleVisibility { background: none; border: none; font-size: 1.5em; cursor: pointer; color: var(--text-color); }
+
+/* Resumen del mes */
+.summary-card { display: flex; justify-content: space-around; }
+.summary-item { text-align: center; }
+.summary-item p { margin: 0; font-size: 0.9em; color: var(--text-color-light); }
+.summary-item h3 { margin: 5px 0; }
+.summary-item.income h3 { color: var(--income-color); }
+.summary-item.expense h3 { color: var(--expense-color); }
+
+/* Acciones rápidas */
+.quick-actions { display: flex; gap: 15px; margin-bottom: 20px; }
+.action-btn {
+    flex-grow: 1;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-color);
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.action-btn:hover { background: rgba(255, 255, 255, 0.25); }
+
+/* Sección de Datos (Gráficos y Metas) */
+.data-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.chart-container h3, .savings-goals h3, .recent-transactions h3 { margin-top: 0; }
+.progress-bar-container { width: 100%; background-color: rgba(0, 0, 0, 0.2); border-radius: 10px; height: 10px; overflow: hidden; margin-top: 5px; }
+.progress-bar { height: 100%; background-color: var(--primary-color); border-radius: 10px; }
+.goal { margin-bottom: 15px; }
+.goal-info { display: flex; justify-content: space-between; font-size: 0.9em; }
+
+/* Transacciones Recientes */
+#transactionsList { list-style: none; padding: 0; margin: 0; }
+#transactionsList li { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.transaction-details { flex-grow: 1; margin: 0 15px; }
+.transaction-desc { display: block; font-weight: 600; }
+.transaction-cat { font-size: 0.8em; color: var(--text-color-light); }
+.transaction-amount.expense { color: var(--expense-color); font-weight: 600; }
+.transaction-amount.income { color: var(--income-color); font-weight: 600; }
+
+/* Estilos del Modal */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); }
+.modal-content {
+    margin: 10% auto;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    animation: slide-down 0.5s ease;
+}
+.close-button { position: absolute; top: 15px; right: 20px; font-size: 2em; cursor: pointer; color: var(--text-color-light); }
+.modal-content h2 { text-align: center; }
+form { display: flex; flex-direction: column; gap: 15px; }
+input, select {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    font-size: 1em;
+}
+.submit-btn {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+}
+.credit-card-option { display: flex; align-items: center; gap: 10px; font-size: 0.9em; }
+
+@keyframes slide-down { from { top: -300px; opacity: 0; } to { top: 0; opacity: 1; } }
