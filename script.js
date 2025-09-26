@@ -1,4 +1,4 @@
-const SCRIPT_URL = "LA_URL_DE_TU_APPS_SCRIPT"; // Pega aquí la URL que guardaste
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw2L4UaoNvTQB-z3YVhtq6UA5drD5pSEk8JEuL0N2cXJoohHp1ETfm2p7ehOWZUPLIP/exec"; // Pega aquí la URL que guardaste
 
 document.addEventListener('DOMContentLoaded', () => {
     // Selectores de elementos del Modal
@@ -96,4 +96,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
 });
